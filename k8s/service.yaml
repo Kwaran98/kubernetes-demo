@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: devops-kubernetes-api-service
+  labels: 
+    app: devops-kubernetes-api
+spec:
+  selector:
+    app: kubernetes-api
+  ports:
+    - protocol: TCP # Here we define which type of a portocol we want to use
+      port: 3000 # Service Port
+      targetPort: 3000 # Container Port
+  type: NodePort #change to LoadBalancer if running in cloud

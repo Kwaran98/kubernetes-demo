@@ -1,0 +1,27 @@
+{
+  "name": "kubernetes",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000M\u0000y\u0000 \u0000F\u0000i\u0000r\u0000s\u0000t\u0000 \u0000K\u0000u\u0000b\u0000e\u0000r\u0000n\u0000e\u0000t\u0000e\u0000s\u0000 \u0000D\u0000e\u0000m\u0000o\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index.js",
+    "start": "node index.js",
+    "deploy": "sh deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kwaran98/kubernetes-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type":"module",
+  "bugs": {
+    "url": "https://github.com/Kwaran98/kubernetes-demo/issues"
+  },
+  "homepage": "https://github.com/Kwaran98/kubernetes-demo#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

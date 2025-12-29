@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-api 
+  labels: 
+    app: kubernetes-api
+# Below is the specification. Here we define the number of replicas of the app we want
+spec: 
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: kubernetes-api
+  template:
+    metadata: 
+      labels:
+        app: kubernetes-api
+    spec:
+      containers: 
+        - name: kubernetes-demo-api
+          image: kwaran/kubernetes-api:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: POD_NAME
+              valueFrom: 
+                fieldRef: 
+                  fieldPath: metadata.name
+          # Here we are attaching different amounts of resources to the containers
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits: 
+              cpu: "500m"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthyz
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 20
